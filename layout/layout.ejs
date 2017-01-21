@@ -7,7 +7,7 @@
                 <%- partial('common/profile', null, {cache: !config.relative_link}) %>
             <% } %>
             <% if (theme.customize.sidebar) { %>
-                <%- partial('common/sidebar', null, {cache: !config.relative_link}) %>
+                <%- partial('common/sidebar') %>
             <% } %>
             <section id="main"><%- body %></section>
         </div>
