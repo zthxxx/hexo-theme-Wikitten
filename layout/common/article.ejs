@@ -1,0 +1,71 @@
+<article id="<%= post.layout %>-<%= post.slug %>" class="article article-type-<%= post.layout %>" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        <% if (post.banner) { %>
+            <%- partial('post/banner') %>
+        <% } %>
+        <% if (post.link || post.title) { %>
+            <header class="article-header">
+                <% if (post.layout != 'page') { %>
+                    <div class="article-meta">
+                        <%- partial('post/category') %>
+                        <%- partial('post/tag') %>
+                        <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>
+                    </div>
+                <% } %>
+                <%- partial('post/title', { class_name: 'article-title' }) %>
+            </header>
+        <% } %>
+        <%- partial('post/gallery') %>
+        <div class="article-entry" itemprop="articleBody">
+        <% var show_all_content = true %>
+        <% if (index) { %>
+            <% if (post.excerpt || post.description) { %>
+                <% show_all_content = false %>
+                <p><%- post.excerpt || post.description %></p>
+            <% } else if (theme.auto_excerpt.enable) { %>
+                <% var br_position = 0 %>
+                <% for (var br_count = 0; br_count < theme.auto_excerpt.lines; br_count++) { %>
+                    <% br_position = post.content.indexOf('\n',br_position + 1) %>
+                    <% if(br_position < 0) { break } %>
+                <% } %>
+                <% if(br_position > 0) { %>
+                    <% show_all_content = false %>
+                    <p><%- post.content.substring(0, br_position + 1) %><p>
+                <% } %>
+            <% } %>
+        <% } else { %>
+            <% if (post.toc) { %>
+                <div id="toc" class="toc-article">
+                <strong class="toc-title"><%= __('article.catalogue') %></strong>
+                    <%- toc(post.content) %>
+                </div>
+            <% } %>
+        <% } %>
+        <% if (show_all_content) { %>
+            <%- post.content %>
+            </div>
+        <% } else { %>
+            </div>   
+            <div class="article-more-link">
+                <a href="<%- url_for(post.path) %>#more"><%= __('article.more') %></a>
+            </div>
+        <% } %>
+        <footer class="article-footer">
+        </footer>
+    </div>
+</article>
+
+<% if (!index) { %>
+    <%- partial('post/nav') %>
+<% } %>
+
+<% if (!index) { %>
+    <%- partial('comment/index') %>
+<% } %>
+
+<% if (!index){ %>
+<!-- baidu url auto push script -->
+<script type="text/javascript">
+    !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=window.location.href,o=document.referrer;if(!e.test(r)){var n="//api.share.baidu.com/s.gif";o?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var t=new Image;t.src=n}}(window);
+</script>     
+<% } %>

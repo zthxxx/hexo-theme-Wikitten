@@ -1,0 +1,9 @@
+<% if (post.comments) { %>
+    <% if (theme.comment.disqus) { %>
+        <section id="comments"> <%- partial('comment/disqus') %> </section>
+    <% } else if (theme.comment.duoshuo) { %>
+        <section id="comments"> <%- partial('comment/duoshuo') %> </section>
+    <% } else if (theme.comment.youyan) { %>
+        <section id="comments"> <%- partial('comment/youyan') %> </section>
+    <% } %>
+<% } %>

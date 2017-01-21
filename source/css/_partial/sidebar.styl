@@ -1,0 +1,231 @@
+#sidebar
+    @media mq-normal
+        column(sidebar-column)
+    @media mq-tablet
+        column(sidebar-column-tablet)
+
+
+.widget
+    @extend $base-style
+    line-height: line-height
+    word-wrap: break-word
+    font-size: 0.9em
+    ul, ol
+        list-style: none
+        margin: 0
+        ul, ol
+            margin: 0 20px
+        ul
+            list-style: disc
+        ol
+            list-style: decimal
+
+.category-list-count
+.tag-list-count
+.archive-list-count
+    padding-left: 5px
+    color: color-grey
+    font-size: 0.85em
+    &:before
+        content: "("
+    &:after
+        content: ")"
+
+.tagcloud
+    a
+        display: inline-block
+        margin-right: 10px
+        &:before
+            content: "#"
+
+.widget-wrap
+    margin: block-margin 0
+    background-color: #eff2f4
+    border: 4px solid #c1cfdc
+    border-radius: 4px
+    padding: 20px
+    @media mq-mini
+        margin: block-margin 20px
+    h3
+        line-height: 20px
+        background: #7B848C
+        margin: -21px -21px 10px -21px
+        padding: 0 20px
+        line-height: 30px
+        border: 1px solid #666
+        border-radius: 4px 4px 0 0
+        span
+            border-radius: 4px 4px 0 0
+            background: #eff2f4
+            font-size: 15px
+            line-height: 18px
+            padding: 5px 10px
+            vertical-align:bottom
+
+.widget-title
+    @extend $block-caption
+    margin-bottom: 0
+
+.widget
+    padding: 15px 5px
+    a
+        color: color-sidebar-text
+        text-decoration: none
+        &:hover
+            color: color-sidebar-text-dark
+    ul, ol, dl
+        ul, ol, dl
+            margin-left: 15px
+            list-style: disc
+    ul, ol
+        list-style: none
+        li,
+        .category-list-child
+            padding: 10px 0
+            font-size: font-size
+            border-bottom: 1px solid border-color
+            a
+                color: color-sidebar-text
+        ul, ol
+            list-style: none
+            li
+                border: none
+                &:last-child
+                    padding-bottom: 0px
+    ul:not(#recent-post), ol:not(#recent-post)
+        li
+            a
+                &:before
+                    color: #ccc
+                    content: "\f0da"
+                    font-size: 12px
+                    margin-right: 6px
+                    font-family: FontAwesome
+                    transition: 0.2s ease
+                &:hover:before
+                    color: color-sidebar-text-dark
+
+#toTop
+    @extend $block
+    display: none
+    cursor: pointer
+    text-align: center
+    width: 60px
+    height: 60px
+    color: white
+    font-size: 50px
+    line-height: 55px
+    background: color-default
+    opacity: 0.8
+    border-radius: 4px
+    bottom: 20px
+    margin: 20px
+    position: fixed
+    @media mq-mobile
+        width: 52px
+        height: 52px
+        font-size: 34px
+        line-height: 52px
+    @media mq-mini
+        width: 48px
+        height: 48px
+        font-size: 32px
+        line-height: 48px
+   
+
+#recent-post
+    li
+        clearfix()
+        padding: 10px 0 10px 94px
+    &.no-thumbnail
+        li
+            padding: 10px 0px
+    li
+        .item-thumbnail
+            opacity: 1
+            float: left
+            margin-left: -94px
+            transition: all 0.2s ease
+            .thumbnail
+                width: 80px
+                height: 80px
+                display: block
+                position: relative
+                overflow: hidden
+                span
+                    width: 100%
+                    height: 100%
+                    display: block
+                .thumbnail-image
+                    position: absolute
+                    background-size: cover
+                    background-position: center
+                .thumbnail-none
+                    background-image: url(thumbnail-default-small)
+                    background-size: 100% 100%
+        .item-inner
+            a
+            .item-category
+                font-size: 13px
+                text-transform: uppercase
+                a
+                    color: color-link
+                    &:hover
+                        color: color-sidebar-text-dark
+                a, .fa
+                    margin-right: 5px
+            .item-title
+                font-size: 15px
+                a
+                    color: color-sidebar-text-dark
+                    transition: all 0.2s ease
+            .item-date
+                color: #aaa
+                font-size: 13px
+                text-transform: uppercase
+        &:hover
+            .item-thumbnail
+                opacity: 0.8
+            .item-title a
+                color: color-link
+                
+#categories
+    text-shadow: 0 1px 0 #FFFFFF
+    font-size: 13px
+    ul
+        margin-bottom: 0
+        li:last-child
+            padding-bottom: 0
+    li
+        padding: 5px 0
+        ul
+            padding-left: 20px
+            display: none
+            margin-top: 5px
+        &.directory.open > ul
+            display: block
+        &.directory
+            font-weight: bold
+            & > a
+                color: #333
+                &:hover
+                    text-decoration: none
+        &.file
+            font-weight: normal
+            word-wrap: break-word
+            &.active > a
+                font-weight: bold
+        li.file
+            padding-left: 10px
+            word-wrap: break-word
+        a,
+        a:hover
+            display: block
+            text-decoration: none
+        a:focus:before
+            content: "↪"
+            float: left
+            margin-left: -13px
+            font-weight: bold
+            color: #333
+                    

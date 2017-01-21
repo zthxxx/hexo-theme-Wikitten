@@ -1,0 +1,53 @@
+<div class="timeline timeline-wrap">
+    <% 
+    var last_year_month;
+    var last_year;
+    var count_per_month = {length: 0};
+    page.posts.each(function(post, index) {
+        var date = post.date.format('YYYY-MM');
+        if (!(date in count_per_month)) {count_per_month[date] = 0; count_per_month.length += 1;}
+        count_per_month[date] += 1;
+    });
+    page.posts.each(function(post, i) {
+        var year_month = post.date.format('YYYY-MM');
+        var year = post.date.year();
+        if (last_year != year) {
+            last_year = year; 
+    %>
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar-o"></i></span>
+                <h1 class="title"><a href="/archives/<%= year %>/"><%= year %></a></h1>
+            </div>
+    <% 
+        }
+        if (last_year_month != year_month) {
+            last_year_month = year_month; 
+    %>
+            <div class="timeline-row timeline-row-major">
+                <span class="node"><i class="fa fa-calendar"></i></span>
+                <h1 class="title"><a href="/archives/<%= year %>/<%= post.date.month()+1 %>/"><%= year_month %></a><span class="archive-list-count"><%= count_per_month[year_month] %></span></h1>
+            </div>
+    <%  } %>
+        <div class="timeline-row">
+            <span class="node"></span>
+            <div class="content">
+                <%- partial('common/post/title', { post: post, index: true, class_name: 'timeline-article-title' }) %>
+                <% if (count_per_month.length == 1) { %>
+                <div class="article-meta">
+                    <%- partial('common/post/date', { post: post, class_name: 'article-date', date_format: null }) %>
+                    <%- partial('common/post/category', { post: post }) %>
+                    <%- partial('common/post/tag', { post: post }) %>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    <% }); %>
+</div>
+<% if (page.total > 1) { %>
+    <nav id="page-nav">
+        <%- paginator({
+            prev_text: '&laquo; ' + __('nav.prev'),
+            next_text: __('nav.next') + ' &raquo;'
+        }) %>
+    </nav>
+<% } %>
