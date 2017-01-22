@@ -52,8 +52,7 @@
                     $('#toTop').fadeOut();
                 }
             } else {
-                $('#toTop').fadeIn();
-                $('#toTop').css('right', 20);
+                $('#toTop').fadeOut();
             }
         }).on('click', '#toTop', function () {
             $('body, html').animate({ scrollTop: 0 }, 600);
