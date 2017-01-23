@@ -26,6 +26,7 @@ customize:
     category_perExpand: false # enable article categories list per expanding
     thumbnail: true # enable posts thumbnail, options: true, false
     favicon: /favicon.ico # path to favicon
+    default_index_file: index.md
     social_links:
         github: https://github.com/zthxxx/zthxxx.github.io
         stack-overflow: http://stackoverflow.com/users/7277090/zthxxx?tab=profile

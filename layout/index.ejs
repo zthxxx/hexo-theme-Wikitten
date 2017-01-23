@@ -1,6 +1,17 @@
-<% page.posts.each(function(post) { %>
-    <%- partial('common/article', { post: post, index: true }) %>
-<% });
+<% 
+var indexArticle;
+var index_file = theme.customize.default_index_file;
+if(index_file) {
+        var query = {"source": `_posts/${index_file}`};
+        indexArticle = site.posts.find(query).first();
+}
+if(indexArticle) { %>
+    <%- partial('common/article', { post: indexArticle, index: false }) %>
+<% } else {
+    page.posts.each(function(post) { %>
+        <%- partial('common/article', { post: post, index: true }) %>
+    <% });
+}
 if (page.total > 1) { %>
     <nav id="page-nav">
         <%- paginator({
