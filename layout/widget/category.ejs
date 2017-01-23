@@ -1,6 +1,13 @@
 <% if (site.categories.length) { %>
     <div class="widget-wrap" id='categories'>
-        <h3 class="widget-title"><span><%= __('widget.categories') %></span></h3>
+        <h3 class="widget-title">
+            <span><%= __('widget.categories') %></span>
+            &nbsp;
+            <a id='allExpand' href="#">
+                <i class="fa fa-angle-double-<%- theme.customize.category_perExpand ? 'up' : 'down' %> fa-2x"></i>
+            </a>
+        </h3>
+        
         <% 
             function listCategories(categories, posts) {
                 function layArtilces(posts) {
@@ -90,10 +97,12 @@
     </div>
     <script>
         $(document).ready(function() {
-            var iconFolderOpenClass  = 'fa fa-folder-open',
-            iconFolderCloseClass = 'fa fa-folder';
+            var iconFolderOpenClass  = 'fa-folder-open';
+            var iconFolderCloseClass = 'fa-folder';
+            var iconAllExpandClass = 'fa-angle-double-down';
+            var iconAllPackClass = 'fa-angle-double-up';
             // Handle directory-tree expansion:
-            $(document).on('click', '#sidebar a[data-role="directory"]', function (event) {
+            $(document).on('click', '#categories a[data-role="directory"]', function (event) {
                 event.preventDefault();
 
                 var icon = $(this).children('.fa');
@@ -114,6 +123,21 @@
                     icon.addClass(iconFolderOpenClass);
                 }
             });
+            $(document).on('click', '#allExpand', function (event) {
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconAllExpandClass);
+                icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
+                if(expanded) {
+                    $('#sidebar .fa.fa-folder').removeClass('fa-folder').addClass('fa-folder-open')
+                    $('#categories li ul').slideDown({ duration: 100 });
+                    icon.addClass(iconAllPackClass);
+                } else {
+                    $('#sidebar .fa.fa-folder-open').removeClass('fa-folder-open').addClass('fa-folder')
+                    $('#categories li ul').slideUp({ duration: 100 });
+                    icon.addClass(iconAllExpandClass);
+                }
+                
+            });  
         });
     </script>
 <% } %>
