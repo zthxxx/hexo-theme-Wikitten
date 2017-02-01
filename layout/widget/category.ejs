@@ -124,6 +124,8 @@
                 }
             });
             $(document).on('click', '#allExpand', function (event) {
+                event.preventDefault();
+                
                 var icon = $(this).children('.fa');
                 var expanded = icon.hasClass(iconAllExpandClass);
                 icon.removeClass(iconAllExpandClass).removeClass(iconAllPackClass);
