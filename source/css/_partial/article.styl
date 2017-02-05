@@ -38,6 +38,7 @@ article
 
 .article-meta
     @extend $block-caption
+    text-transform: none
     clearfix()
     line-height: 1.6em
     & > div
@@ -49,7 +50,20 @@ article
         color: color-default
         &:hover
             color: color-link
-
+div.article-meta-button
+    float: right
+    margin-right: 0
+    margin-left: 10px
+    a
+        padding: 4px 8px
+        margin: 2px 0
+        font-size: 85%
+        background: #555
+        border-radius: 3px
+        text-transform: none
+        &:hover
+            background: #333
+            
 .article-inner .article-meta
         line-height: 20px
         background: color-meta-head

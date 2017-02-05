@@ -25,7 +25,7 @@
     %>
             <div class="timeline-row timeline-row-major">
                 <span class="node"><i class="fa fa-calendar"></i></span>
-                <h1 class="title"><a href="/archives/<%= year %>/<%= post.date.month()+1 %>/"><%= year_month %></a><span class="archive-list-count"><%= count_per_month[year_month] %></span></h1>
+                <h1 class="title"><a href="/archives/<%= year %>/<%= post.date.format('MM') %>/"><%= year_month %></a><span class="archive-list-count"><%= count_per_month[year_month] %></span></h1>
             </div>
     <%  } %>
         <div class="timeline-row">

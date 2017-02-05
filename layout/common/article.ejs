@@ -10,6 +10,19 @@
                         <%- partial('post/category') %>
                         <%- partial('post/tag') %>
                         <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>
+                        <% if (theme.history_control.enable) { 
+                            let repertory_address = `${theme.history_control.server_link}/${theme.history_control.user}/${theme.history_control.repertory}`;
+                            let file_path = `${theme.history_control.branch}/source/${post.source}`;%>
+                            <div class="article-meta-button">
+                                <a href='<%= `${repertory_address}/raw/${file_path}` %>'> Source </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='<%= `${repertory_address}/edit/${file_path}` %>'> Edit </a>
+                            </div>
+                            <div class="article-meta-button">
+                                <a href='<%= `${repertory_address}/blame/${file_path}` %>'> History </a>
+                            </div>
+                        <% } %>
                     </div>
                 <% } %>
                 <%- partial('post/title', { class_name: 'article-title' }) %>
