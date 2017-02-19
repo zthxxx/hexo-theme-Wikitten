@@ -102,27 +102,45 @@
             var iconAllExpandClass = 'fa-angle-double-down';
             var iconAllPackClass = 'fa-angle-double-up';
             // Handle directory-tree expansion:
+            // 左键单独展开目录
             $(document).on('click', '#categories a[data-role="directory"]', function (event) {
                 event.preventDefault();
 
                 var icon = $(this).children('.fa');
-                var open = icon.hasClass(iconFolderOpenClass);
-                var subtree = $(this).siblings('ul')[0];
-
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var subtree = $(this).siblings('ul');
                 icon.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
-
-                if (open) {
+                if (expanded) {
                     if (typeof subtree != 'undefined') {
-                        $(subtree).slideUp({ duration: 100 });
+                        subtree.slideUp({ duration: 100 });
                     }
                     icon.addClass(iconFolderCloseClass);
                 } else {
                     if (typeof subtree != 'undefined') {
-                        $(subtree).slideDown({ duration: 100 });
+                        subtree.slideDown({ duration: 100 });
                     }
                     icon.addClass(iconFolderOpenClass);
                 }
             });
+            // 右键展开下属所有目录
+            $('#categories a[data-role="directory"]').bind("contextmenu", function(event){
+                event.preventDefault();
+                
+                var icon = $(this).children('.fa');
+                var expanded = icon.hasClass(iconFolderOpenClass);
+                var listNode = $(this).siblings('ul');
+                var subtrees = $.merge(listNode.find('li ul'), listNode);
+                var icons = $.merge(listNode.find('.fa'), icon);
+                icons.removeClass(iconFolderOpenClass).removeClass(iconFolderCloseClass);
+                if(expanded) {
+                    subtrees.slideUp({ duration: 100 });
+                    icons.addClass(iconFolderCloseClass);
+                } else {
+                    subtrees.slideDown({ duration: 100 });
+                    icons.addClass(iconFolderOpenClass);
+                }
+            })
+         
             $(document).on('click', '#allExpand', function (event) {
                 event.preventDefault();
                 
@@ -138,7 +156,6 @@
                     $('#categories li ul').slideUp({ duration: 100 });
                     icon.addClass(iconAllExpandClass);
                 }
-                
             });  
         });
     </script>
