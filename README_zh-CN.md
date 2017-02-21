@@ -1,20 +1,18 @@
 # hexo-theme-Wikitten
 
-[中文版文档](./README_zh-CN.md)
-
-### A personal wiki imitate [Wikitten](https://wikitten.vizuina.com/) style for Hexo. >[Preview](http://wiki.zthxxx.top/)
+### 一个仿 [Wikitten](https://wikitten.vizuina.com/) 样式的 Hexo 个人 wiki 系统主题。 >[预览](http://wiki.zthxxx.top/)
 
 ![Site Preview](./source/images/SitePreview.png)
 
 
 
-## Installation
+## 安装说明
 
-`hexo-theme-Wikitten` kernel code base on [icarus](https://github.com/ppoffice/hexo-theme-icarus), so you can read base function document with [icarus wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki).
+`hexo-theme-Wikitten` 核心功能代码基于 [icarus](https://github.com/ppoffice/hexo-theme-icarus)，所以你可以在 [icarus wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki) 阅读基础功能文档。
 
-### Install
+### 安装
 
-**Wikitten theme requires Hexo 3.0 or late.**
+**Wikitten 主题需要 Hexo v3.0 及以上版本。**
 
 ```bash
 $ cd your-hexo-directory
@@ -23,7 +21,7 @@ $ cp themes/Wikitten/_source/* source/
 $ cp themes/Wikitten/_scaffolds/* scaffolds/
 ```
 
-**Plugins requires in theme `package.json` and you need install these.**
+**需要安装的插件写在主题的 `package.json` 文件中。**
 
 ```bash
 "hexo-autonofollow": "^1.0.1"
@@ -32,13 +30,11 @@ $ cp themes/Wikitten/_scaffolds/* scaffolds/
 "hexo-generator-sitemap": "^1.1.2"
 ```
 
+### 启用
 
+修改站点 `_config.yml` 文件中的 `theme` 选项为 **`Wikitten`**。
 
-### Enable
-
-Modify `theme` setting in site config file `_config.yml` to **`Wikitten`**.
-
-### Update
+### 更新
 
 ```bash
 $ cd themes/Wikitten
@@ -47,9 +43,9 @@ $ git pull origin master
 
 
 
-## Configuration
+## 配置说明
 
-In site config file `_config.yml`, **recommend settings**:
+在站点配置文件 `_config.yml` 中， **推荐配置为**：
 
 ```yaml
 # Hexo Configuration
@@ -101,23 +97,23 @@ nofollow:
     - <your site url domain> # eg: zthxxx.top
 ```
 
-In **theme** config file `Wikitten/_config.yml`, you can read more detailed commentary for some options.
+在**主题**配置文件 `Wikitten/_config.yml` 中，你能阅读到各个选项更多的细节配置。
 
-### `profile`, `comment`, `Share` and `miscellaneous` are **DEFAULT DISABLE**! 
+### `profile`、`comment`、`Share` 和 `miscellaneous` 项都是 **默认关闭的**！ 
 
-(You still can enable them, but not recommend.)
+（你任然可以打开那些选项，只是不推荐这样做。）
 
-other **recommend settings**:
+其他的 **推荐设置为**：
 
 ```yaml
 # Customize
-customize: # modify this information for yourself
-	sidebar: left # sidebar position, options: left, right
-    category_perExpand: false # enable article categories list per expanding
-    default_index_file: index.md # if this, it will display at site index instead of default index page
+customize: # 首先修改这项里面的信息为你自己的各项信息
+	sidebar: left # 侧边栏的所在位置，默认左边
+    category_perExpand: false # 侧边栏里的各个分类是否默认展开
+    default_index_file: index.md # 是否指定一篇文章作为首页来代替默认的多篇文章的首页。
     
 # Widgets
-widgets: # default use category only
+widgets: # 挂件，默认指开启了分类这一栏
     - category
     # - recent_posts
     # - archive
@@ -126,9 +122,9 @@ widgets: # default use category only
     # - links
     
 # History version 
-history_control: # make you wiki has history version control in page
+history_control: # 启用这一项使得 wiki 能有历史版本的功能
     enable: true
-    server_link: https://github.com # recommend use GitHub https://github.com
+    server_link: https://github.com # 版本控制服务器，推荐使用 GitHub https://github.com
     user: <your GitHub name>
     repertory: <your repertory name of this wiki source code>
     branch: <branch name of this wiki site source code>
@@ -136,7 +132,7 @@ history_control: # make you wiki has history version control in page
 
 
 
-## License
+## 版权协议
 
 [MIT LICENSE](./LICENSE)
 
