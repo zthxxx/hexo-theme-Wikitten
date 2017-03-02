@@ -2,7 +2,7 @@
 
 [中文版文档](./README_zh-CN.md)
 
-### A personal wiki imitate [Wikitten](https://wikitten.vizuina.com/) style for Hexo. >[Preview](http://wiki.zthxxx.top/)
+### A personal wiki imitate [Wikitten](https://wikitten.vizuina.com/) style for Hexo. >[Preview](http://wiki.zthxxx.me/)
 
 ![Site Preview](./source/images/SitePreview.png)
 
@@ -98,7 +98,7 @@ sitemap:
 nofollow:
   enable: true
   exclude:
-    - <your site url domain> # eg: zthxxx.top
+    - <your site url domain> # eg: zthxxx.me
 ```
 
 In **theme** config file `Wikitten/_config.yml`, you can read more detailed commentary for some options.

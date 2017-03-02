@@ -1,6 +1,6 @@
 # hexo-theme-Wikitten
 
-### 一个仿 [Wikitten](https://wikitten.vizuina.com/) 样式的 Hexo 个人 wiki 系统主题。 >[预览](http://wiki.zthxxx.top/)
+### 一个仿 [Wikitten](https://wikitten.vizuina.com/) 样式的 Hexo 个人 wiki 系统主题。 >[预览](http://wiki.zthxxx.me/)
 
 ![Site Preview](./source/images/SitePreview.png)
 
@@ -94,7 +94,7 @@ sitemap:
 nofollow:
   enable: true
   exclude:
-    - <your site url domain> # eg: zthxxx.top
+    - <your site url domain> # eg: zthxxx.me
 ```
 
 在**主题**配置文件 `Wikitten/_config.yml` 中，你能阅读到各个选项更多的细节配置。
