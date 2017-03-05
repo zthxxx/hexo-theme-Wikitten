@@ -6,7 +6,7 @@
 
 ![Site Preview](./source/images/SitePreview.png)
 
-
+Applicable to personal wiki knowledge management. Simple, double column, classified management. The knowledge of multi-level sorting, the side can be expand at all levels of classification, easy to jump.
 
 ## Installation
 
@@ -25,14 +25,25 @@ $ cp themes/Wikitten/_scaffolds/* scaffolds/
 
 **Plugins requires in theme `package.json` and you need install these.**
 
-```bash
-"hexo-autonofollow": "^1.0.1"
-"hexo-generator-feed": "^1.2.0"
-"hexo-generator-json-content": "^2.2.0"
-"hexo-generator-sitemap": "^1.1.2"
+```json
+"hexo-autonofollow": "^1.0.1"	// open external links in new tab
+"hexo-generator-feed": "^1.2.0"	// generate Atom 1.0 or RSS 2.0 feed
+"hexo-generator-json-content": "^2.2.0"	// generate a JSON content file for site search
+"hexo-generator-sitemap": "^1.1.2"	// generate sitemap
+"hexo-renderer-mathjax": "^0.6.0"	// render LaTex formula
 ```
 
+You can merge these plugins into the **site's** `package.json` file by `npm install ` command install them once,
 
+Or in the **site folder**, you can install them with the following command:
+
+```bash
+$ npm install -s hexo-autonofollow
+$ npm install -s hexo-generator-feed
+$ npm install -s hexo-generator-json-content
+$ npm install -s hexo-generator-sitemap
+$ npm install -s hexo-renderer-mathjax
+```
 
 ### Enable
 
@@ -126,7 +137,7 @@ widgets: # default use category only
     # - links
     
 # History version 
-history_control: # make you wiki has history version control in page
+history_control: # make you wiki has history version control in page (view source code, edit online, compare historical changes)
     enable: true
     server_link: https://github.com # recommend use GitHub https://github.com
     user: <your GitHub name>

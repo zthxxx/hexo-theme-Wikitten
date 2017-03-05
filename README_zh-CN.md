@@ -1,10 +1,12 @@
 # hexo-theme-Wikitten
 
+[English Page](./README.md)
+
 ### 一个仿 [Wikitten](https://wikitten.vizuina.com/) 样式的 Hexo 个人 wiki 系统主题。 >[预览](http://wiki.zthxxx.me/)
 
 ![Site Preview](./source/images/SitePreview.png)
 
-
+适用于个人 wiki 知识管理。简洁，双栏，分类管理。将知识多级分类整理，侧边可展开各级分类，方便联想跳转。
 
 ## 安装说明
 
@@ -23,11 +25,24 @@ $ cp themes/Wikitten/_scaffolds/* scaffolds/
 
 **需要安装的插件写在主题的 `package.json` 文件中。**
 
+```json
+"hexo-autonofollow": "^1.0.1"	// 打开非本站链接时自动开启新标签页
+"hexo-generator-feed": "^1.2.0"	// 生成 RSS 源
+"hexo-generator-json-content": "^2.2.0"	// 生成全站文章 json 内容，配合搜索使用
+"hexo-generator-sitemap": "^1.1.2"	// 生成全站 sitemap
+"hexo-renderer-mathjax": "^0.6.0"	// 渲染 LaTex 公式
+```
+
+你可以将这些插件合并到**站点**的 `package.json` 文件中通过 `npm install` 一次安装，
+
+或者在**站点目录**下，你可以通过以下命令安装他们：
+
 ```bash
-"hexo-autonofollow": "^1.0.1"
-"hexo-generator-feed": "^1.2.0"
-"hexo-generator-json-content": "^2.2.0"
-"hexo-generator-sitemap": "^1.1.2"
+$ npm install -s hexo-autonofollow
+$ npm install -s hexo-generator-feed
+$ npm install -s hexo-generator-json-content
+$ npm install -s hexo-generator-sitemap
+$ npm install -s hexo-renderer-mathjax
 ```
 
 ### 启用
@@ -122,7 +137,7 @@ widgets: # 挂件，默认指开启了分类这一栏
     # - links
     
 # History version 
-history_control: # 启用这一项使得 wiki 能有历史版本的功能
+history_control: # 启用这一项使得 wiki 能有历史版本的功能（查看源码、在线编辑、对比历史变动）
     enable: true
     server_link: https://github.com # 版本控制服务器，推荐使用 GitHub https://github.com
     user: <your GitHub name>
