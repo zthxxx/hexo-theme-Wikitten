@@ -19,8 +19,9 @@ Applicable to personal wiki knowledge management. Simple, double column, classif
 ```bash
 $ cd your-hexo-directory
 $ git clone https://github.com/zthxxx/hexo-theme-Wikitten.git themes/Wikitten
-$ cp themes/Wikitten/_source/* source/
-$ cp themes/Wikitten/_scaffolds/* scaffolds/
+$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
+$ cp -rf themes/Wikitten/_source/* source/
+$ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
 ```
 
 **Plugins requires in theme `package.json` and you need install these.**
@@ -30,7 +31,7 @@ $ cp themes/Wikitten/_scaffolds/* scaffolds/
 "hexo-generator-feed": "^1.2.0"	// generate Atom 1.0 or RSS 2.0 feed
 "hexo-generator-json-content": "^2.2.0"	// generate a JSON content file for site search
 "hexo-generator-sitemap": "^1.1.2"	// generate sitemap
-"hexo-renderer-mathjax": "^0.6.0"	// render LaTex formula
+"hexo-renderer-marked": "^0.2.10"	// render LaTex formula
 ```
 
 You can merge these plugins into the **site's** `package.json` file by `npm install ` command install them once,
@@ -42,7 +43,7 @@ $ npm install -s hexo-autonofollow
 $ npm install -s hexo-generator-feed
 $ npm install -s hexo-generator-json-content
 $ npm install -s hexo-generator-sitemap
-$ npm install -s hexo-renderer-mathjax
+$ npm install -s hexo-renderer-marked
 ```
 
 ### Enable
@@ -114,6 +115,8 @@ nofollow:
 
 In **theme** config file `Wikitten/_config.yml`, you can read more detailed commentary for some options.
 
+**Before the start, plase first change my personal info to yourself, including options that `profile` `social_links` `history_control` and so on.**
+
 ### `profile`, `comment`, `Share` and `miscellaneous` are **DEFAULT DISABLE**! 
 
 (You still can enable them, but not recommend.)
@@ -123,7 +126,7 @@ other **recommend settings**:
 ```yaml
 # Customize
 customize: # modify this information for yourself
-	sidebar: left # sidebar position, options: left, right
+    sidebar: left # sidebar position, options: left, right
     category_perExpand: false # enable article categories list per expanding
     default_index_file: index.md # if this, it will display at site index instead of default index page
     

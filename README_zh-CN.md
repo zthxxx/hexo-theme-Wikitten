@@ -19,8 +19,9 @@
 ```bash
 $ cd your-hexo-directory
 $ git clone https://github.com/zthxxx/hexo-theme-Wikitten.git themes/Wikitten
-$ cp themes/Wikitten/_source/* source/
-$ cp themes/Wikitten/_scaffolds/* scaffolds/
+$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
+$ cp -rf themes/Wikitten/_source/* source/
+$ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
 ```
 
 **需要安装的插件写在主题的 `package.json` 文件中。**
@@ -30,7 +31,7 @@ $ cp themes/Wikitten/_scaffolds/* scaffolds/
 "hexo-generator-feed": "^1.2.0"	// 生成 RSS 源
 "hexo-generator-json-content": "^2.2.0"	// 生成全站文章 json 内容，配合搜索使用
 "hexo-generator-sitemap": "^1.1.2"	// 生成全站 sitemap
-"hexo-renderer-mathjax": "^0.6.0"	// 渲染 LaTex 公式
+"hexo-renderer-marked": "^0.2.10"	// 渲染 LaTex 公式
 ```
 
 你可以将这些插件合并到**站点**的 `package.json` 文件中通过 `npm install` 一次安装，
@@ -42,7 +43,7 @@ $ npm install -s hexo-autonofollow
 $ npm install -s hexo-generator-feed
 $ npm install -s hexo-generator-json-content
 $ npm install -s hexo-generator-sitemap
-$ npm install -s hexo-renderer-mathjax
+$ npm install -s hexo-renderer-marked
 ```
 
 ### 启用
@@ -114,6 +115,8 @@ nofollow:
 
 在**主题**配置文件 `Wikitten/_config.yml` 中，你能阅读到各个选项更多的细节配置。
 
+**在开始之前，首先请将主题配置文件示例中「我」的信息修改为「你」自己的信息，其中包括 `profile` `social_links` `history_control`等配置项。**
+
 ### `profile`、`comment`、`Share` 和 `miscellaneous` 项都是 **默认关闭的**！ 
 
 （你任然可以打开那些选项，只是不推荐这样做。）
@@ -123,7 +126,7 @@ nofollow:
 ```yaml
 # Customize
 customize: # 首先修改这项里面的信息为你自己的各项信息
-	sidebar: left # 侧边栏的所在位置，默认左边
+    sidebar: left # 侧边栏的所在位置，默认左边
     category_perExpand: false # 侧边栏里的各个分类是否默认展开
     default_index_file: index.md # 是否指定一篇文章作为首页来代替默认的多篇文章的首页。
     
