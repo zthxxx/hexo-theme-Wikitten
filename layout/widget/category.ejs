@@ -10,8 +10,8 @@
         
         <% 
             function listCategories(categories, posts) {
-                function layArtilces(posts) {
-                    var categoriesAarticles = {'_root': []};
+                function layArticles(posts) {
+                    var classifiedArticles = {'_root': []};
                     posts.forEach(function(post,i){
                             var last_post_cat;
                             var post_info = {
@@ -21,13 +21,13 @@
                         };
                         if(post.categories.length) {
                             last_cat_id = post.categories.data.slice(-1)[0]['_id'];
-                            if(!categoriesAarticles[last_cat_id]) categoriesAarticles[last_cat_id] = [];
-                            categoriesAarticles[last_cat_id].push(post_info);
+                            if(!classifiedArticles[last_cat_id]) classifiedArticles[last_cat_id] = [];
+                            classifiedArticles[last_cat_id].push(post_info);
                         } else {
-                            categoriesAarticles['_root'].push(post_info);
+                            classifiedArticles['_root'].push(post_info);
                         }
                     });
-                    return categoriesAarticles;
+                    return classifiedArticles;
                 }
                 function prepareQuery(categories, parent) {
                     var query = {};
@@ -40,28 +40,28 @@
                         return cat.length;
                     });
                 }
-                function hierarchicalList(tree, parent, categoriesAarticles) {
-                  if(!tree.name) tree = {"name": "_root", "_id": "_root", "children": [], "articles": categoriesAarticles['_root']};
+                function hierarchicalList(tree, parent, classifiedArticles) {
+                  if(!tree.name) tree = {"name": "_root", "_id": "_root", "children": [], "articles": classifiedArticles['_root']};
                   prepareQuery(categories, parent).forEach(function(cat, i) {
                       var now_category = {
                           "_id": cat._id, 
                           "name": cat.name, 
                           "children": [],
-                          "articles": categoriesAarticles[cat._id]
+                          "articles": classifiedArticles[cat._id]
                       };
                       if(is_post() && now_category.articles) {
                           now_category.articles.forEach(function(post, i) {
                               if(page._id == post._id) now_category["selected"] = true;
                           });
                       }
-                      var childTree = hierarchicalList(now_category, cat._id, categoriesAarticles);
+                      var childTree = hierarchicalList(now_category, cat._id, classifiedArticles);
                       if(childTree.selected) {tree["selected"] = true};
                       tree.children.push(childTree);
                   });
                   return tree;
                 }
-                var categoriesAarticles = layArtilces(posts);
-                var categoriesTree = hierarchicalList({}, null, categoriesAarticles);
+                var classifiedArticles = layArticles(posts);
+                var categoriesTree = hierarchicalList({}, null, classifiedArticles);
                 return categoriesTree;
             }
         %>
@@ -140,7 +140,7 @@
                     icons.addClass(iconFolderOpenClass);
                 }
             })
-         
+            // 展开关闭所有目录按钮
             $(document).on('click', '#allExpand', function (event) {
                 event.preventDefault();
                 

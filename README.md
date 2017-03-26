@@ -19,19 +19,21 @@ Applicable to personal wiki knowledge management. Simple, double column, classif
 ```bash
 $ cd your-hexo-directory
 $ git clone https://github.com/zthxxx/hexo-theme-Wikitten.git themes/Wikitten
-$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
 $ cp -rf themes/Wikitten/_source/* source/
 $ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
+$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
+# Last command will creat theme config form example, but remember to change personal info.
 ```
 
 **Plugins requires in theme `package.json` and you need install these.**
 
 ```json
 "hexo-autonofollow": "^1.0.1"	// open external links in new tab
+"hexo-directory-category": "^1.0.0" // Add categories according to the article file directory
 "hexo-generator-feed": "^1.2.0"	// generate Atom 1.0 or RSS 2.0 feed
 "hexo-generator-json-content": "^2.2.0"	// generate a JSON content file for site search
 "hexo-generator-sitemap": "^1.1.2"	// generate sitemap
-"hexo-renderer-marked": "^0.2.10"	// render LaTex formula
+"hexo-math": "^3.0.2"	// render LaTex formula
 ```
 
 You can merge these plugins into the **site's** `package.json` file by `npm install ` command install them once,
@@ -39,11 +41,12 @@ You can merge these plugins into the **site's** `package.json` file by `npm inst
 Or in the **site folder**, you can install them with the following command:
 
 ```bash
-$ npm install -s hexo-autonofollow
-$ npm install -s hexo-generator-feed
-$ npm install -s hexo-generator-json-content
-$ npm install -s hexo-generator-sitemap
-$ npm install -s hexo-renderer-marked
+$ npm install --save hexo-autonofollow
+$ npm install --save hexo-directory-category
+$ npm install --save hexo-generator-feed
+$ npm install --save hexo-generator-json-content
+$ npm install --save hexo-generator-sitemap
+$ npm install --save hexo-math
 ```
 
 ### Enable
