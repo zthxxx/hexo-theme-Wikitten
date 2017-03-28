@@ -29,7 +29,7 @@ $ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
 
 ```json
 "hexo-autonofollow": "^1.0.1"	// 打开非本站链接时自动开启新标签页
-"hexo-directory-category": "^1.0.0" // 根据文章文件目录自动添加分类
+"hexo-directory-category": "^1.0.3" // 根据文章文件目录自动添加分类
 "hexo-generator-feed": "^1.2.0"	// 生成 RSS 源
 "hexo-generator-json-content": "^2.2.0"	// 生成全站文章 json 内容，配合搜索使用
 "hexo-generator-sitemap": "^1.1.2"	// 生成全站 sitemap
