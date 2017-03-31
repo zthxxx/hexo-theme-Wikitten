@@ -31,7 +31,7 @@ $ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
 "hexo-autonofollow": "^1.0.1"	// open external links in new tab
 "hexo-directory-category": "^1.0.3" // Add categories according to the article file directory
 "hexo-generator-feed": "^1.2.0"	// generate Atom 1.0 or RSS 2.0 feed
-"hexo-generator-json-content": "^2.2.0"	// generate a JSON content file for site search
+"hexo-generator-json-content": "^3.0.1"	// generate a JSON content file for site search
 "hexo-generator-sitemap": "^1.1.2"	// generate sitemap
 "hexo-math": "^3.0.2"	// render LaTex formula
 ```
@@ -93,8 +93,6 @@ jsonContent:
     date: true
     path: true
     text: true
-    tags: true
-    categories: true
   posts:
     title: true
     date: true
