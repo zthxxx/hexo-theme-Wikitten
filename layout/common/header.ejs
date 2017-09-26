@@ -24,15 +24,16 @@
             <%- partial('search/index') %>
         </div>
     </div>
+
     <div id="main-nav-mobile" class="header-sub header-inner">
         <table class="menu outer">
             <tr>
                 <% for (var i in theme.menu) { %>
                     <td><a class="main-nav-link" href="<%- url_for(theme.menu[i]) %>"><%= i %></a></td>
                 <% } %>
-                <td>
-                    <%- partial('search/index-mobile') %>
-                </td>
+                <!--<td>-->
+                    <!--<%- partial('search/index-mobile') %>-->
+                <!--</td>-->
             </tr>
         </table>
     </div>

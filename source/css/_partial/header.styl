@@ -121,8 +121,8 @@ $nav-link
             line-height: logo-height
 
 #search-form-wrap
-    @media mq-mini
-        display: none
+    //@media mq-mini
+    //    display: none
     @extend $header-block
     @extend $header-block-right
     .search-form
@@ -182,15 +182,16 @@ $nav-link
         clearfix()
         margin: 0
         height: header-sub-height
-        .search-form-input
-            display: none
-            @media mq-mini
-                display: block
-            padding: 0 10px
-            margin-right: 15px
-            height: header-sub-height - 6
-            line-height: header-sub-height - 6
-            border-radius: ((header-sub-height - 6)/2)
-            &::-webkit-search-results-decoration
-            &::-webkit-search-cancel-button
-                -webkit-appearance: none
+        //.search-form-input
+        //    display: none
+        //    @media mq-mini
+        //        float: left
+        //        display: block
+        //    padding: 0 10px
+        //    margin-right: 15px
+        //    height: header-sub-height - 6
+        //    line-height: header-sub-height - 6
+        //    border-radius: ((header-sub-height - 6)/2)
+        //    &::-webkit-search-results-decoration
+        //    &::-webkit-search-cancel-button
+        //        -webkit-appearance: none

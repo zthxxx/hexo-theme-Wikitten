@@ -243,17 +243,15 @@ div .article-more-link
     margin-left: 20px
     .fa-share
         margin-right: 5px
-
 #article-nav
     clearfix()
     position: relative
-    @media mq-normal
-        margin: block-margin 0
-        &:before
-            absolute-center(8px)
-            content: ""
-            border-radius: 50%
-            background: color-default + #222
+    margin: block-margin 0
+    &:before
+        absolute-center(8px)
+        content: ""
+        border-radius: 50%
+        background: color-default + #222
 
 .article-nav-link-wrap
     text-decoration: none
@@ -264,21 +262,53 @@ div .article-more-link
     display: block
     &:hover
         color: color-default
-    @media mq-normal
-        width: 50%
-        margin-top: 0
+    width: 50%
+    margin-top: 0
 
 #article-nav-newer
-    @media mq-normal
-        float: left
-        text-align: right
-        padding-right: 20px
+    float: left
+    text-align: right
+    padding-right: 20px
 
 #article-nav-older
-    @media mq-normal
-        float: right
-        text-align: left
-        padding-left: 20px
+    float: right
+    text-align: left
+    padding-left: 20px
+//#article-nav
+//    clearfix()
+//    position: relative
+//    @media mq-normal
+//        margin: block-margin 0
+//        &:before
+//            absolute-center(8px)
+//            content: ""
+//            border-radius: 50%
+//            background: color-default + #222
+//
+//.article-nav-link-wrap
+//    text-decoration: none
+//    color: color-grey
+//    box-sizing: border-box
+//    margin-top: block-margin
+//    text-align: center
+//    display: block
+//    &:hover
+//        color: color-default
+//    @media mq-normal
+//        width: 50%
+//        margin-top: 0
+//
+//#article-nav-newer
+//    @media mq-normal
+//        float: left
+//        text-align: right
+//        padding-right: 20px
+//
+//#article-nav-older
+//    @media mq-normal
+//        float: right
+//        text-align: left
+//        padding-left: 20px
 
 .article-nav-caption
     letter-spacing: 2px
