@@ -29,4 +29,7 @@
     <% if (theme.plugins.justifiedgallery) { %>
         <%- js('libs/justified-gallery/jquery.justifiedGallery.min.js') %>
     <% } %>
+    <% if (theme.plugins.mathjax) { %>
+        <%- partial('plugin/mathjax') %>
+    <% } %>
 <% } %>

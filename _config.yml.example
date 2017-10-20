@@ -77,6 +77,7 @@ share: default # options: jiathis, bdshare, addtoany, default
 plugins:
     lightgallery: true # options: true, false
     justifiedgallery: true # options: true, false
+    mathjax: true # options: true, false - to enable use Mathjax in your article
     google_analytics: # enter the tracking ID for your Google Analytics
     google_site_verification: # enter Google site verification code
     baidu_analytics: # enter Baidu Analytics hash key
