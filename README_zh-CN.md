@@ -4,20 +4,9 @@
 
 ### 一个仿 [Wikitten](https://wikitten.vizuina.com/) 样式的 Hexo 个人 wiki 系统主题。 >[预览](http://wiki.zthxxx.me/)
 
-一些特性：
-
-- 适用于个人 wiki 知识管理
-- 简洁，双栏，分类
-- 将知识多级分类整理，侧边分级展开，为思维跳转设计
-- 根据文件路径自动为文章添加分类 #4
-
 ![Site Preview](./source/images/SitePreview.png)
 
-
-
-![mobile preview](./source/images/mobile1.png) ![mobile preview](./source/images/mobile2.png)
-
-
+适用于个人 wiki 知识管理。简洁，双栏，分类管理。将知识多级分类整理，侧边可展开各级分类，方便联想跳转。
 
 ## 安装说明
 
@@ -25,44 +14,26 @@
 
 ### 安装
 
-**注意：本主题需要 Hexo v3.0 及以上版本。**
-
-1. 进入你的 hexo 站点文件夹，克隆 `Wikitten` 主题到 `themes/` 路径下
+**Wikitten 主题需要 Hexo v3.0 及以上版本。**
 
 ```bash
 $ cd your-hexo-directory
 $ git clone https://github.com/zthxxx/hexo-theme-Wikitten.git themes/Wikitten
-```
-
-2. 覆盖站点目录中一些默认页面模板
-
-```bash
 $ cp -rf themes/Wikitten/_source/* source/
 $ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
+$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml  
+# 最后这项是站点配置文件，.example 为直接可用的示例配置，但请记得修改配置文件中的个人信息
 ```
 
-3. 重命名主题中的 `_config.yml.example` 到 `_config.yml`，然后可以使用配置文件配置主题
-
-```bash
-$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
-# 编辑配置文件，定制你的配置项
-$ vim themes/Wikitten/_config.yml
-```
-
-大部分的配置项都和 [icarus](https://github.com/ppoffice/hexo-theme-icarus) 主题中的配置项一样，你可以首先去阅读一下 [icraus 的文档](https://github.com/ppoffice/hexo-theme-icarus/wiki)。
-
-一些你可以开箱即用的推荐配置见下面的文档：[#Configuration](#Configuration)
-
-4. 需要安装的插件写在主题的 [`package.json`](./package.json) 文件中
-
-这里列出了这些插件的功能作用：
+**需要安装的插件写在主题的 `package.json` 文件中。**
 
 ```json
-hexo-autonofollow	    // 打开非本站链接时自动开启新标签页
-hexo-directory-category // 根据文章文件目录自动为文章添加分类
-hexo-generator-feed	    // 生成 RSS 源
-hexo-generator-json-content	// 生成全站文章 json 内容，用于全文搜索
-hexo-generator-sitemap	// 生成全站站点地图 sitemap
+"hexo-autonofollow": "^1.0.1"	// 打开非本站链接时自动开启新标签页
+"hexo-directory-category": "^1.0.3" // 根据文章文件目录自动添加分类
+"hexo-generator-feed": "^1.2.0"	// 生成 RSS 源
+"hexo-generator-json-content": "^3.0.1"	// 生成全站文章 json 内容，配合搜索使用
+"hexo-generator-sitemap": "^1.1.2"	// 生成全站 sitemap
+"hexo-math": "^3.0.2"	// 渲染 LaTex 公式
 ```
 
 你可以将这些插件合并到**站点**的 `package.json` 文件中通过 `npm install` 一次安装，
@@ -70,7 +41,12 @@ hexo-generator-sitemap	// 生成全站站点地图 sitemap
 或者在**站点目录**下，你可以通过以下命令安装他们：
 
 ```bash
-$ npm i -S hexo-autonofollow hexo-directory-category hexo-generator-feed hexo-generator-json-content hexo-generator-sitemap
+$ npm install --save hexo-autonofollow
+$ npm install --save hexo-directory-category
+$ npm install --save hexo-generator-feed
+$ npm install --save hexo-generator-json-content
+$ npm install --save hexo-generator-sitemap
+$ npm install --save hexo-math
 ```
 
 ### 启用
@@ -152,8 +128,8 @@ nofollow:
 # Customize
 customize: # 首先修改这项里面的信息为你自己的各项信息
     sidebar: left # 侧边栏的所在位置，默认左边
-    category_perExpand: false # 侧边栏里的各个分类是否默认全部展开
-    default_index_file: index.md # 是否指定一篇文章作为首页来代替默认的多篇文章的首页，没有此项的话就会显示默认的按时间顺序排列的文章
+    category_perExpand: false # 侧边栏里的各个分类是否默认展开
+    default_index_file: index.md # 是否指定一篇文章作为首页来代替默认的多篇文章的首页。
     
 # Widgets
 widgets: # 挂件，默认指开启了分类这一栏
