@@ -4,9 +4,20 @@
 
 ### A personal wiki imitate [Wikitten](https://wikitten.vizuina.com/) style for Hexo. >[Preview](http://wiki.zthxxx.me/)
 
+some features:
+
+- Applicable to personal wiki knowledge management
+- Simple, double column, classified management
+- The knowledge of multi-level sorting, the side can be expand at all levels of classification, easy to jump
+- Categorize article according to file directory  #4
+
 ![Site Preview](./source/images/SitePreview.png)
 
-Applicable to personal wiki knowledge management. Simple, double column, classified management. The knowledge of multi-level sorting, the side can be expand at all levels of classification, easy to jump.
+
+
+![mobile preview](./source/images/mobile1.png) ![mobile preview](./source/images/mobile2.png)
+
+
 
 ## Installation
 
@@ -14,39 +25,52 @@ Applicable to personal wiki knowledge management. Simple, double column, classif
 
 ### Install
 
-**Wikitten theme requires Hexo 3.0 or late.**
+**Note: This theme requires Hexo v3.0 or late.**
+
+1. Go to your hexo folder, then clone this theme `Wikitten` into `themes/`
 
 ```bash
 $ cd your-hexo-directory
 $ git clone https://github.com/zthxxx/hexo-theme-Wikitten.git themes/Wikitten
-$ cp -rf themes/Wikitten/_source/* source/
-$ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
-$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
-# Last command will creat theme config form example, but remember to change personal info.
 ```
 
-**Plugins requires in theme `package.json` and you need install these.**
-
-```json
-"hexo-autonofollow": "^1.0.1"	// open external links in new tab
-"hexo-directory-category": "^1.0.3" // Add categories according to the article file directory
-"hexo-generator-feed": "^1.2.0"	// generate Atom 1.0 or RSS 2.0 feed
-"hexo-generator-json-content": "^3.0.1"	// generate a JSON content file for site search
-"hexo-generator-sitemap": "^1.1.2"	// generate sitemap
-"hexo-math": "^3.0.2"	// render LaTex formula
-```
-
-You can merge these plugins into the **site's** `package.json` file by `npm install ` command install them once,
-
-Or in the **site folder**, you can install them with the following command:
+2. Rewrite to cover some default page template in site folder
 
 ```bash
-$ npm install --save hexo-autonofollow
-$ npm install --save hexo-directory-category
-$ npm install --save hexo-generator-feed
-$ npm install --save hexo-generator-json-content
-$ npm install --save hexo-generator-sitemap
-$ npm install --save hexo-math
+$ cp -rf themes/Wikitten/_source/* source/
+$ cp -rf themes/Wikitten/_scaffolds/* scaffolds/
+```
+
+3. Rename the `_config.yml.example` to `_config.yml` so you can config theme
+
+```bash
+$ cp -f themes/Wikitten/_config.yml.example themes/Wikitten/_config.yml
+# edit and customize it
+$ vim themes/Wikitten/_config.yml
+```
+
+most configurations are same as the [icarus](https://github.com/ppoffice/hexo-theme-icarus) theme, you can read with [icarus wiki](https://github.com/ppoffice/hexo-theme-icarus/wiki) at first.
+
+some recommend options setting which you can out of the box, see below [#Configuration](#Configuration).
+
+4. Plugins requires in theme [`package.json`](./package.json) and you need install these.
+
+here is those function and effect:
+
+```json
+hexo-autonofollow       // automatic make user open external links in new tab
+hexo-directory-category // automatic categorize article according to their file directory
+hexo-generator-feed     // generate Atom 1.0 or RSS 2.0 feed
+hexo-generator-json-content // generate a json content file for site search
+hexo-generator-sitemap  // generate sitemap
+```
+
+you can merge these plugins into the **site's** `package.json` file by `npm install ` command install them once,
+
+or in the **site folder**, you can install them with the following command:
+
+```bash
+$ npm install --save hexo-autonofollow hexo-directory-category hexo-generator-feed hexo-generator-json-content hexo-generator-sitemap
 ```
 
 ### Enable
@@ -59,8 +83,6 @@ Modify `theme` setting in site config file `_config.yml` to **`Wikitten`**.
 $ cd themes/Wikitten
 $ git pull origin master
 ```
-
-
 
 ## Configuration
 
@@ -122,14 +144,14 @@ In **theme** config file `Wikitten/_config.yml`, you can read more detailed comm
 
 (You still can enable them, but not recommend.)
 
-other **recommend settings**:
+other theme **recommend settings**:
 
 ```yaml
 # Customize
 customize: # modify this information for yourself
     sidebar: left # sidebar position, options: left, right
     category_perExpand: false # enable article categories list per expanding
-    default_index_file: index.md # if this, it will display at site index instead of default index page
+    default_index_file: index.md # enable this, it will display at site index instead of default index page, or disable that it will display more articles order by time 
     
 # Widgets
 widgets: # default use category only
@@ -143,7 +165,7 @@ widgets: # default use category only
 # History version 
 history_control: # make you wiki has history version control in page (view source code, edit online, compare historical changes)
     enable: true
-    server_link: https://github.com # recommend use GitHub https://github.com
+    server_link: https://github.com # recommend use GitHub - https://github.com
     user: <your GitHub name>
     repertory: <your repertory name of this wiki source code>
     branch: <branch name of this wiki site source code>
