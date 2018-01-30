@@ -73,6 +73,10 @@ comment:
 # Share
 share: default # options: jiathis, bdshare, addtoany, default
 
+#Count
+busuanzi_count:
+    enable: true
+
 # Plugins
 plugins:
     lightgallery: true # options: true, false
