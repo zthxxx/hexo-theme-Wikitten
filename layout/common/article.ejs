@@ -10,7 +10,7 @@
                         <%- partial('post/category') %>
                         <%- partial('post/tag') %>
                         <%- partial('post/date', { class_name: 'article-date', date_format: null }) %>
-                        <% if (theme.busuanzi_count.enable) { %>
+                        <% if (theme.plugins.busuanzi_count) { %>
                             <i class="fa fa-bar-chart"></i>
                             <span id="busuanzi_container_site_pv"><span id="busuanzi_value_page_pv"></span></span>    
                         <% } %>
