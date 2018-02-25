@@ -25,7 +25,7 @@ some features:
 
 ### Install
 
-**Note: This theme requires Hexo v3.0 or late.**
+**Note: This theme requires Hexo v3.6 or late.**
 
 1. Go to your hexo folder, then clone this theme `Wikitten` into `themes/`
 
