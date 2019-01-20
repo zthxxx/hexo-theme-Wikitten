@@ -73,6 +73,27 @@ hexo-generator-sitemap	// 生成全站站点地图 sitemap
 $ npm i -S hexo-autonofollow hexo-directory-category hexo-generator-feed hexo-generator-json-content hexo-generator-sitemap
 ```
 
+5. 配置mathjax渲染（可选）：
+
+如果你在博客中需要撰写数学公式，推荐进行以下配置：
+
+首先安装[pandoc](https://pandoc.org/installing.html)，同时在hexo站点下修改渲染引擎：
+
+```bash
+$ npm un hexo-renderer-marked --save
+$ npm i hexo-rendere-pandoc --save # or hexo-renderer-krammed
+```
+
+然后将以下配置加到站点`_config.yml`文件中：
+
+```bash
+math:
+  enable: true
+  engine: mathjax
+```
+
+
+
 ### 启用
 
 修改站点 `_config.yml` 文件中的 `theme` 选项为 **`Wikitten`**。

@@ -73,6 +73,25 @@ or in the **site folder**, you can install them with the following command:
 $ npm install --save hexo-autonofollow hexo-directory-category hexo-generator-feed hexo-generator-json-content hexo-generator-sitemap
 ```
 
+5. `mathjax` renderer configuration (optional)：
+
+If you need to write mathematical formulas, the following configuration is recommended:
+
+First, you need to install [pandoc](https://pandoc.org/installing.html)，and modify the rendering engine under the hexo site in the meanwhile:
+
+```bash
+$ npm un hexo-renderer-marked --save
+$ npm i hexo-rendere-pandoc --save # or hexo-renderer-krammed
+```
+
+Modify settings in site config file `_config.yml`:
+
+```bash
+math:
+  enable: true
+  engine: mathjax
+```
+
 ### Enable
 
 Modify `theme` setting in site config file `_config.yml` to **`Wikitten`**.
