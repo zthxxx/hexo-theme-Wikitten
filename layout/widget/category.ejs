@@ -16,6 +16,7 @@
                             var last_post_cat;
                             var post_info = {
                             "title": post.title,
+                            "date": post.date,
                             "path": url_for(post.path),
                             "_id": post._id
                         };
@@ -83,7 +84,9 @@
                     });
                 } 
                 if(branch.articles && branch.articles.length) {
-                    branch.articles.forEach(function(post){
+                    branch.articles.sort(function(post0, post1) {
+                        return new Date(post0.date) - new Date(post1.date)
+                    }).forEach(function(post){
                         %> <li class="file<%- (is_post() && post._id == page._id) ? ' active' : '' %>"><a href="<%- post.path %>"><%- post.title %></a></li> <%
                     });
                 }
