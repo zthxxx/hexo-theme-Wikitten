@@ -60,7 +60,7 @@
     }
     
     // Task lists in markdown
-    $('ul > li').each(function() {
+    $('.article-entry ul > li').each(function() {
         var taskList = {
             field: this.textContent.substring(0, 2),
             check: function(str) {
@@ -68,7 +68,7 @@
                 return this.field.match(re);
             }
         }
-        var string = ["[ ]", ["[x]", "checked"]];
+        var string = [/\[ \]/, [/\[x\]/, "checked"]];
         var checked = taskList.check(string[1][0]);
         var unchecked = taskList.check(string[0]);
         var $current = $(this);
