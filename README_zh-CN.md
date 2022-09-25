@@ -81,7 +81,7 @@ $ npm i -S hexo-autonofollow hexo-directory-category hexo-generator-feed hexo-ge
 
 ```bash
 $ npm un hexo-renderer-marked --save
-$ npm i hexo-rendere-pandoc --save # or hexo-renderer-krammed
+$ npm i hexo-renderer-pandoc --save # or hexo-renderer-krammed
 ```
 
 然后将以下配置加到站点`_config.yml`文件中：
