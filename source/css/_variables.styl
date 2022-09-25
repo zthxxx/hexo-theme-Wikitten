@@ -46,11 +46,17 @@ main-column = 7.5
 sidebar-column = 2.5
 profile-column = 2.5
 sidebar-column-tablet = 3.5
+sidebar-direction = left
 
 if sidebar
     _sidebar-column = sidebar-column
 else
     _sidebar-column = 0
+
+if sidebar is right
+    sidebar-direction = right
+else
+    sidebar-direction = left
 
 if profile
     _profile-column = profile-column
