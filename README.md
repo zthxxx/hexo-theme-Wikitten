@@ -81,7 +81,7 @@ First, you need to install [pandoc](https://pandoc.org/installing.html)，and mo
 
 ```bash
 $ npm un hexo-renderer-marked --save
-$ npm i hexo-rendere-pandoc --save # or hexo-renderer-krammed
+$ npm i hexo-renderer-pandoc --save # or hexo-renderer-krammed
 ```
 
 Modify settings in site config file `_config.yml`:
